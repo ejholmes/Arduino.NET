@@ -42,18 +42,49 @@ int Arduino_NET::available() {
   return Serial.available();
 }
 
-void Arduino_NET::sendCommand(byte command, const char* argv) {
+void Arduino_NET::sendCommand(byte command, int count, const char* first, ...) {
   Serial.print(command, BYTE);
+  
+  const char* next = first;
+  va_list lst;
+  va_start(lst, first);
+  
+  while(count--) {
+    Serial.print(ARG_SEPARATOR, BYTE);
+    Serial.print(next);
+    
+    next = va_arg(lst, char*);
+  }
+  
+  va_end(lst);
+  
   Serial.print(ARG_SEPARATOR, BYTE);
-  if(argv != NULL)
-    Serial.print(argv);
+  Serial.println(END_MESSAGE, BYTE);
+}
+
+void Arduino_NET::sendCommand(byte command, int count, int first, ...) {
+  Serial.print(command, BYTE);
+  
+  int next = first;
+  va_list lst;
+  va_start(lst, first);
+  
+  while(count--) {
+    Serial.print(ARG_SEPARATOR, BYTE);
+    Serial.print(next);
+    
+    next = va_arg(lst, int);
+  }
+  
+  va_end(lst);
+  
   Serial.print(ARG_SEPARATOR, BYTE);
   Serial.println(END_MESSAGE, BYTE);
 }
 
 void Arduino_NET::sendCommand(byte command)
 {
-  sendCommand(command, NULL);
+  sendCommand(command, 0, NULL);
 }
 
 char** Arduino_NET::splitArgs(char *list) {
@@ -96,3 +127,5 @@ void Arduino_NET::process() {
     }
   }
 }
+
+Arduino_NET Arduino;

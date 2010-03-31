@@ -36,7 +36,8 @@ class Arduino_NET {
     void begin(int baud = 9600);
     int available();
     void process();
-    void sendCommand(byte command, const char* argv);
+    void sendCommand(byte command, int count, int first, ...);
+    void sendCommand(byte command, int count, const char* first, ...);
     void sendCommand(byte command);
   private:
     char** splitArgs(char *list);
@@ -45,5 +46,7 @@ class Arduino_NET {
     int bufferIndex;
     int argCount;
 };
+
+extern Arduino_NET Arduino;
 
 #endif
