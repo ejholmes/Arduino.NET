@@ -37,6 +37,7 @@ class Arduino_NET {
     int available();
     void process();
     void sendCommand(byte command, const char* argv);
+    void sendCommand(byte command);
   private:
     char** splitArgs(char *list);
     messageCompleteCallback currentCallback;

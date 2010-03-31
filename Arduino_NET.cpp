@@ -44,9 +44,16 @@ int Arduino_NET::available() {
 
 void Arduino_NET::sendCommand(byte command, const char* argv) {
   Serial.print(command, BYTE);
-  Serial.print(argv);
+  Serial.print(ARG_SEPARATOR, BYTE);
+  if(argv != NULL)
+    Serial.print(argv);
   Serial.print(ARG_SEPARATOR, BYTE);
   Serial.println(END_MESSAGE, BYTE);
+}
+
+void Arduino_NET::sendCommand(byte command)
+{
+  sendCommand(command, NULL);
 }
 
 char** Arduino_NET::splitArgs(char *list) {
