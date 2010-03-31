@@ -1,7 +1,7 @@
 README
 ======
 
-This is an Arduino Library for simple text based serial communication. It uses the convention of `command <arg1> <arg2> <etc> #` where `command` is a byte value. It is meant to be an alternative to the [Messenger](http://www.arduino.cc/playground/Code/Messenger) library and [Firmata](http://arduino.cc/en/Reference/Firmata).
+This is an Arduino Library for simple text based serial communication. It uses the convention of `command <arg1> <arg2> <...> #` where `command` is a byte value. It is meant to be an alternative to the [Messenger](http://www.arduino.cc/playground/Code/Messenger) library and [Firmata](http://arduino.cc/en/Reference/Firmata).
 
 How to use
 ---------
