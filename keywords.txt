@@ -6,23 +6,23 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-Arduino_NET KEYWORD1
-Arduino KEYWORD1
+Arduino_NET	KEYWORD1
+Arduino	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-begin KEYWORD2
-available KEYWORD2
-sendCommand KEYWORD2
-attach KEYWORD2
-process KEYWORD2
+begin	KEYWORD2
+available	KEYWORD2
+sendCommand	KEYWORD2
+attach	KEYWORD2
+process	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
 #######################################
 
-END_MESSAGE LITERAL1
-ESCAPE_CHARACTER LITERAL1
-ARG_SEPARATOR LITERAL1
+END_MESSAGE	LITERAL1
+ESCAPE_CHARACTER	LITERAL1
+ARG_SEPARATOR	LITERAL1
